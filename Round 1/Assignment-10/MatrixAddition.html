@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Matrix Addition</title>
+</head>
+<body>
+    <h2>Matrix Addition</h2>
+    <label for="rows">Enter the number of rows:</label>
+    <input type="number" id="rows">
+
+    <label for="columns">Enter the number of columns:</label>
+    <input type="number" id="columns">
+
+    <button onclick="createMatrices()">Create Matrices</button>
+
+    <div id="matrixInputs"></div>
+
+    <button onclick="calculateMatrixSum()">Calculate Sum</button>
+
+    <p id="result"></p>
+
+    <script>
+        let matrices = [];
+
+        function createMatrices() {
+            const rows = parseInt(document.getElementById("rows").value);
+            const columns = parseInt(document.getElementById("columns").value);
+
+            // Create input fields for the matrices
+            let matrixInputsHTML = "";
+            for (let i = 1; i <= 2; i++) {
+                matrixInputsHTML += `<h3>Matrix ${i}</h3>`;
+                for (let row = 0; row < rows; row++) {
+                    for (let col = 0; col < columns; col++) {
+                        matrixInputsHTML += `<input type="number" id="matrix${i}-row${row}-col${col}" placeholder="Enter element (${row + 1},${col + 1})"> `;
+                    }
+                    matrixInputsHTML += "<br>";
+                }
+            }
+
+            document.getElementById("matrixInputs").innerHTML = matrixInputsHTML;
+        }
+
+        function calculateMatrixSum() {
+            const rows = parseInt(document.getElementById("rows").value);
+            const columns = parseInt(document.getElementById("columns").value);
+
+            // Get elements from the input fields and form the matrices
+            let matrix1 = [];
+            let matrix2 = [];
+            for (let row = 0; row < rows; row++) {
+                matrix1.push([]);
+                matrix2.push([]);
+                for (let col = 0; col < columns; col++) {
+                    const element1 = parseFloat(document.getElementById(`matrix1-row${row}-col${col}`).value);
+                    const element2 = parseFloat(document.getElementById(`matrix2-row${row}-col${col}`).value);
+
+                    matrix1[row].push(element1);
+                    matrix2[row].push(element2);
+                }
+            }
+
+            // Perform matrix addition
+            let resultMatrix = [];
+            for (let row = 0; row < rows; row++) {
+                resultMatrix.push([]);
+                for (let col = 0; col < columns; col++) {
+                    resultMatrix[row].push(matrix1[row][col] + matrix2[row][col]);
+                }
+            }
+
+            // Display the result
+            let resultHTML = "<h3>Result Matrix</h3>";
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < columns; col++) {
+                    resultHTML += resultMatrix[row][col] + " ";
+                }
+                resultHTML += "<br>";
+            }
+
+            document.getElementById("result").innerHTML = resultHTML;
+        }
+    </script>
+</body>
+</html>

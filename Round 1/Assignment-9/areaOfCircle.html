@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Circle Area Calculator</title>
+</head>
+<body>
+    <h2>Circle Area Calculator</h2>
+    <label for="radius">Enter the radius of the circle:</label>
+    <input type="number" id="radius">
+
+    <button onclick="calculateCircleArea()">Calculate Area</button>
+
+    <p id="result"></p>
+
+    <script>
+        function calculateCircleArea() {
+            const radius = parseFloat(document.getElementById("radius").value);
+
+            // Using the formula for the area of a circle: π * r^2
+            const area = Math.PI * Math.pow(radius, 2);
+
+            document.getElementById("result").innerText = "Area of the circle: " + area.toFixed(2);
+        }
+    </script>
+</body>
+</html>

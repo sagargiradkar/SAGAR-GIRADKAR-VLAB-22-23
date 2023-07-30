@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vowel Finder</title>
+</head>
+<body>
+    <h2>Vowel Finder</h2>
+    <label for="inputString">Enter a string:</label>
+    <input type="text" id="inputString">
+
+    <button onclick="findVowels()">Find Vowels</button>
+
+    <p id="result"></p>
+
+    <script>
+        function findVowels() {
+            const inputString = document.getElementById("inputString").value;
+            const vowels = inputString.match(/[aeiouAEIOU]/g);
+            const vowelCount = vowels ? vowels.length : 0;
+
+            document.getElementById("result").innerText = "Number of vowels: " + vowelCount;
+        }
+    </script>
+</body>
+</html>

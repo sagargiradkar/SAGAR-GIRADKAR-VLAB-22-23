@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Triangle Area Calculator</title>
+</head>
+<body>
+    <h2>Triangle Area Calculator</h2>
+    <label for="side1">Enter the length of side 1:</label>
+    <input type="number" id="side1">
+
+    <label for="side2">Enter the length of side 2:</label>
+    <input type="number" id="side2">
+
+    <label for="side3">Enter the length of side 3:</label>
+    <input type="number" id="side3">
+
+    <button onclick="calculateTriangleArea()">Calculate Area</button>
+
+    <p id="result"></p>
+
+    <script>
+        function calculateTriangleArea() {
+            const side1 = parseFloat(document.getElementById("side1").value);
+            const side2 = parseFloat(document.getElementById("side2").value);
+            const side3 = parseFloat(document.getElementById("side3").value);
+
+            // Using Heron's formula to calculate the area
+            const s = (side1 + side2 + side3) / 2;
+            const area = Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+
+            document.getElementById("result").innerText = "Area of the triangle: " + area.toFixed(2);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Matrix Transpose</title>
+</head>
+<body>
+    <h2>Matrix Transpose</h2>
+    <label for="rows">Enter the number of rows:</label>
+    <input type="number" id="rows">
+
+    <label for="columns">Enter the number of columns:</label>
+    <input type="number" id="columns">
+
+    <button onclick="createMatrix()">Create Matrix</button>
+
+    <div id="matrixInput"></div>
+
+    <button onclick="calculateTranspose()">Calculate Transpose</button>
+
+    <p id="result"></p>
+
+    <script>
+        let matrix = [];
+
+        function createMatrix() {
+            const rows = parseInt(document.getElementById("rows").value);
+            const columns = parseInt(document.getElementById("columns").value);
+
+            // Create input fields for the matrix
+            let matrixInputHTML = "<h3>Matrix</h3>";
+            for (let row = 0; row < rows; row++) {
+                for (let col = 0; col < columns; col++) {
+                    matrixInputHTML += `<input type="number" id="matrix-row${row}-col${col}" placeholder="Enter element (${row + 1},${col + 1})"> `;
+                }
+                matrixInputHTML += "<br>";
+            }
+
+            document.getElementById("matrixInput").innerHTML = matrixInputHTML;
+        }
+
+        function calculateTranspose() {
+            const rows = parseInt(document.getElementById("rows").value);
+            const columns = parseInt(document.getElementById("columns").value);
+
+            // Get elements from the input fields and form the matrix
+            for (let row = 0; row < rows; row++) {
+                matrix.push([]);
+                for (let col = 0; col < columns; col++) {
+                    const element = parseFloat(document.getElementById(`matrix-row${row}-col${col}`).value);
+                    matrix[row].push(element);
+                }
+            }
+
+            // Calculate the transpose
+            let transposeMatrix = [];
+            for (let col = 0; col < columns; col++) {
+                transposeMatrix.push([]);
+                for (let row = 0; row < rows; row++) {
+                    transposeMatrix[col].push(matrix[row][col]);
+                }
+            }
+
+            // Display the result
+            let resultHTML = "<h3>Transpose Matrix</h3>";
+            for (let row = 0; row < columns; row++) {
+                for (let col = 0; col < rows; col++) {
+                    resultHTML += transposeMatrix[row][col] + " ";
+                }
+                resultHTML += "<br>";
+            }
+
+            document.getElementById("result").innerHTML = resultHTML;
+        }
+    </script>
+</body>
+</html>

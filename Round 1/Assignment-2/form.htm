@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body style="background-color:rgb(239, 245, 246);font-size: large;text-align: center;">
+    <strong>
+    <h2 style="font-size:300% ;">Registration Form</h2>
+    <input type="image" src="download.png" width="400px" height="200">
+    <form>
+        <h2 style="font-size:200% ;">PERSONAL INFORMATION</h2>
+        <lable for="write" >Enter your name :</lable>
+        <input type="text" id="write" name="name1"><br><br>
+
+        <input type="hidden" id="empid" name="" value="123">
+
+        <label for="pswd">Enter your Password :</label>
+        <input type="password" id="pswd"><br><br>
+        
+        <label for="num"> Enter your age (18-30) :</label>
+        <input type="number" id="num" min="18" max="30"><br><br>
+
+        <label for="dob" >Enter your Birthdate :</label>
+        <input type="datetime-local" id="dob"><br><br>
+
+        
+        <label for="gen" >Male</label>
+        <input type="radio" id="gen" name="gen">
+
+       
+        <label for="gen">Female</label>
+        <input type="radio" id="gen" name="gen"><br><br>
+
+        <label type="mail">Enter your email :</label>
+        <input type="email" id="mail" name="mymail" placeholder="abc@gmail.com"><br><br>
+
+        <label for="mobno" > Enter your mobile number :</label>
+        <input type="tel" id="mobno" name="telno" maxlength="10" placeholder="1234567890"><br><br>
+        
+        <label for="rg">Your Trainning Progress :</label>
+        <input type="range" id="rg" min="0" max="100" value="10"><br><br>
+        
+        <label for="sear">Search Your Documents :</label>
+        <input type="search" id="sear" placeholder="Search Documents">
+
+        <input type="button" id="butt" value="search" onclick="search()"><br><br>
+
+        <label for="doc">Upload Your Documents :</label>
+        <input type="file" id="doc" name="Files"><br><br>
+
+        <label >Select your coddind Languages </label><br>
+
+        <input type="checkbox" id="lang" checked>
+        <label for="lang" >HTML</label><br>
+        <input type="checkbox"  id="lang">
+        <label for="lang" >C++</label><br>
+        <input type="checkbox"  id="lang">
+        <label for="lang" >Java</label><br>
+        <input type="checkbox"  id="lang">
+        <label for="lang" >Python</label><br>
+        <input type="checkbox"  id="lang">
+        <label for="lang" >CSS</label><br>
+        <input type="checkbox"  id="lang">
+        <label for="lang" >JavaScript</label><br>
+        <input type="checkbox"  id="lang">
+        <label for="lang" >C</label><br>
+
+        <label for="tm">Enter the time of Registration:</label>
+        <input type="time" id="tm"><br>
+
+        <label for="mon">Enter the month of Registration :</label>
+        <input type="month" id="mon" ><br><br>
+
+        <label for="br" >Select Your Engineering Branch</label>
+        <select id="br">
+            <option>IT</option>
+            <option>Computer</option>
+            <option>ENTC</option>
+            <option>Mechanical</option>
+        </select><br>
+
+        <input type="submit" id="sub">
+        <input type="reset" id="res">
+    </form>
+    
+</strong>
+</body>
+</html>
